@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'domain' => env('API_DOMAIN', null),
+    'domain' => env('API_DOMAIN', 'api'),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'name' => env('API_NAME', null),
+    'name' => env('API_NAME', env('API_NAME', 'Example API')),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'debug' => env('API_DEBUG', false),
+    'debug' => env('API_DEBUG', env('APP_DEBUG', false)),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,7 +154,7 @@ return [
     */
 
     'middleware' => [
-
+        \Barryvdh\Cors\HandleCors::class,
     ],
 
     /*
