@@ -16,7 +16,7 @@ class ServerController extends Controller
     }
 
     /**
-     * Get the application version
+     * Get the application version from an existing version file
      * @return mixed
      */
     public function version()
