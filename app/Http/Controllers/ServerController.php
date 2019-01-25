@@ -14,4 +14,17 @@ class ServerController extends Controller
     {
         return $this->success();
     }
+
+    /**
+     * Get the application version
+     * @return mixed
+     */
+    public function version()
+    {
+        if(file_exists(base_path('version')))
+        {
+            return $this->success(file_get_contents(base_path('version')));
+        }
+        return $this->success('dev');
+    }
 }
