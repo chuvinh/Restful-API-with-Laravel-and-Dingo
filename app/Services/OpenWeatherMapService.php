@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Interfaces\IQueryService;
 use App\Models\WeatherStatus;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
 
-class OpenWeatherMapService
+class OpenWeatherMapService implements IQueryService
 {
     /**
      * Fetching data from openweathermap.org

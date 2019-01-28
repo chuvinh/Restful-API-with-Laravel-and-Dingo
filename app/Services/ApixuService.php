@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Interfaces\IQueryService;
 use App\Models\WeatherStatus;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
 
-class ApixuService
+class ApixuService implements IQueryService
 {
     /**
      * Fetching data from Apiux.com
