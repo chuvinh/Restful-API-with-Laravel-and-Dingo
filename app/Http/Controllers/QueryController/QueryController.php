@@ -11,6 +11,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class QueryController extends Controller
 {
 
+    /**
+     * Fetch data from only one service
+     * @param $city
+     * @return \Dingo\Api\Http\Response
+     */
     public function current($city)
     {
         if(!($city = City::where('name', $city)->first())) {
@@ -22,7 +27,11 @@ class QueryController extends Controller
     }
 
 
-
+    /**
+     * Fetch data from both of the service
+     * @param $city
+     * @return \Dingo\Api\Http\Response
+     */
     public function all($city)
     {
         if(!($city = City::where('name', $city)->first()))

@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Models\WeatherStatus;
 use App\Services\QueryService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class QueryWeatherStats extends Command
 {
@@ -30,6 +32,10 @@ class QueryWeatherStats extends Command
      */
     public function __construct(QueryService $queryService)
     {
+        // uncomment this and every time we run query:all the database will be flushed
+//        DB::statement("SET foreign_key_checks=0");
+//        WeatherStatus::truncate();
+//        DB::statement("SET foreign_key_checks=1");
         $this->queryService = $queryService;
         parent::__construct();
     }
