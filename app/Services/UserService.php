@@ -33,12 +33,19 @@ class UserService
      */
     public function update(User $user, array $data) : User
     {
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-
         if(isset($data['password']))
         {
             $user->password = $data['password'];
+        }
+
+        if(isset($data['name']))
+        {
+            $user->name = $data['name'];
+        }
+
+        if(isset($data['email']))
+        {
+            $user->email = $data['email'];
         }
 
         $user->save();
