@@ -34,6 +34,19 @@ $router->version('v1', function (Router $router){
             $router->get('city/{city}/all', 'QueryController\QueryController@all');
         });
 
+
+        // Auth routes
+        $router->group(['prefix' => 'auth'], function (Router $router) {
+            $router->post('login', 'Auth\AuthController@login');
+            $router->patch('refresh', 'Auth\AuthController@refreshToken');
+            $router->delete('invalidate', 'Auth\AuthController@deleteInvalidate');
+            $router->post('register', 'Auth\AuthController@register');
+
+            $router->group(['middleware' => ['api.auth']], function (Router $router) {
+                $router->get('user', 'Auth\AuthController@getUser');
+            });
+        });
+
         $router->resource('users', 'UserController\UserController');
     });
 });
