@@ -7,6 +7,14 @@ use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
 {
+    public $availableIncludes = [
+        'roles',
+    ];
+
+    protected $defaultIncludes = [
+        'roles',
+    ];
+
     public function transform(User $user)
     {
         return [
@@ -14,5 +22,11 @@ class UserTransformer extends TransformerAbstract
             'name'  =>  $user->name,
             'email' =>  $user->email,
         ];
+    }
+
+    //the function name should be include and include name
+    public function includeRoles(User $user)
+    {
+        return $this->collection($user->roles, new RoleTransformer);
     }
 }
