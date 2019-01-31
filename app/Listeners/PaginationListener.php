@@ -36,13 +36,13 @@ class PaginationListener
             }
         }
 
-        if (!array_key_exists('to', $event->content['meta']['pagination'])) {
-            $event->content['meta']['pagination']['to'] =
-                $event->content['meta']['pagination']['from'] + $event->content['meta']['pagination']['per_page'] - 1;
-
-            if ($event->content['meta']['pagination']['to'] > $event->content['meta']['pagination']['total']) {
-                $event->content['meta']['pagination']['to'] = $event->content['meta']['pagination']['total'];
-            }
-        }
+//        if (!array_key_exists('to', $event->content['meta']['pagination'])) {
+//            $event->content['meta']['pagination']['to'] =
+//                $event->content['meta']['pagination']['from'] + $event->content['meta']['pagination']['per_page'] - 1;
+//
+//            if ($event->content['meta']['pagination']['to'] > $event->content['meta']['pagination']['total']) {
+//                $event->content['meta']['pagination']['to'] = $event->content['meta']['pagination']['total'];
+//            }
+//        }
     }
 }
