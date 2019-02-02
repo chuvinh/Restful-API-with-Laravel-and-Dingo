@@ -1,0 +1,6 @@
+APP_ENV=testing
+APP_DEBUG=true
+APP_KEY=base64:/pdCEKAlo41AjRZ4SOQ55sPuVXcM4ZY5O6fTWtEdf4k=
+
+DB_CONNECTION=sqlite
+DB_DATABASE=testing.sqlite
