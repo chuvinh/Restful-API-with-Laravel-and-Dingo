@@ -39,10 +39,10 @@ $router->version('v1', function (Router $router){
         $router->group(['prefix' => 'auth'], function (Router $router) {
             $router->post('login', 'Auth\AuthController@login');
             $router->patch('refresh', 'Auth\AuthController@refreshToken');
-            $router->delete('invalidate', 'Auth\AuthController@deleteInvalidate');
+            $router->delete('invalidate', 'Auth\AuthController@invalidate');
             $router->post('register', 'Auth\AuthController@register');
 
-            $router->group(['middleware' => ['api.auth']], function (Router $router) {
+            $router->group(['middleware' => ['api.auth', 'role:root']], function (Router $router) {
                 $router->get('user', 'Auth\AuthController@getUser');
             });
         });
